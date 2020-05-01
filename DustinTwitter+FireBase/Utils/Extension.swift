@@ -68,7 +68,7 @@ extension UIView {
                 self.topAnchor.constraint(equalTo: topAnchor, constant: paddingTop!).isActive = true
             }
         }
-        
+
         func centerY(inView view: UIView, leftAnchor: NSLayoutXAxisAnchor? = nil, paddingLeft: CGFloat? = nil,
                      constant: CGFloat? = 0) {
             translatesAutoresizingMaskIntoConstraints = true
