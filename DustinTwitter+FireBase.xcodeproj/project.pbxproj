@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		ACF136860FC6E276BEDC6DB5 /* Pods_DustinTwitter_FireBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0C18D051AA45D62547A0A2 /* Pods_DustinTwitter_FireBase.framework */; };
+		DA32A794245D265B00A2F56E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA32A793245D265B00A2F56E /* SceneDelegate.swift */; };
+		DA32A796245D2BB800A2F56E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA32A795245D2BB800A2F56E /* Main.storyboard */; };
 		DA4AA0E2245A617B00377FCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4AA0E1245A617B00377FCE /* AppDelegate.swift */; };
-		DA4AA0E9245A617B00377FCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4AA0E7245A617B00377FCE /* Main.storyboard */; };
 		DA4AA0EB245A617C00377FCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4AA0EA245A617C00377FCE /* Assets.xcassets */; };
 		DA4AA0EE245A617C00377FCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4AA0EC245A617C00377FCE /* LaunchScreen.storyboard */; };
 		DA4AA101245A77E800377FCE /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4AA100245A77E800377FCE /* MainTabController.swift */; };
@@ -17,7 +18,6 @@
 		DA4AA105245AAA1F00377FCE /* ExploreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4AA104245AAA1F00377FCE /* ExploreController.swift */; };
 		DA4AA107245AAA2B00377FCE /* ConversationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4AA106245AAA2B00377FCE /* ConversationsController.swift */; };
 		DA4AA109245AAA3D00377FCE /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4AA108245AAA3D00377FCE /* NotificationController.swift */; };
-		DA75FC05245C49EE00803E5C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA75FC04245C49EE00803E5C /* SceneDelegate.swift */; };
 		DA7EED66245B9482005CA354 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7EED65245B9482005CA354 /* LoginController.swift */; };
 		DA7EED68245B94DC005CA354 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7EED67245B94DC005CA354 /* RegistrationController.swift */; };
 		DA7EED6A245B9B88005CA354 /* Utilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7EED69245B9B88005CA354 /* Utilites.swift */; };
@@ -30,9 +30,10 @@
 		3B0AFEB6CFA35AE2FEA95E6E /* Pods-DustinTwitter+FireBase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DustinTwitter+FireBase.release.xcconfig"; path = "Target Support Files/Pods-DustinTwitter+FireBase/Pods-DustinTwitter+FireBase.release.xcconfig"; sourceTree = "<group>"; };
 		7A0C18D051AA45D62547A0A2 /* Pods_DustinTwitter_FireBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DustinTwitter_FireBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FFF872288251B5102D807D /* Pods-DustinTwitter+FireBase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DustinTwitter+FireBase.debug.xcconfig"; path = "Target Support Files/Pods-DustinTwitter+FireBase/Pods-DustinTwitter+FireBase.debug.xcconfig"; sourceTree = "<group>"; };
+		DA32A793245D265B00A2F56E /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = SOURCE_ROOT; };
+		DA32A795245D2BB800A2F56E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = SOURCE_ROOT; };
 		DA4AA0DE245A617B00377FCE /* DustinTwitter+FireBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DustinTwitter+FireBase.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA4AA0E1245A617B00377FCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DA4AA0E8245A617B00377FCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA4AA0EA245A617C00377FCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA4AA0ED245A617C00377FCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4AA0EF245A617C00377FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -42,7 +43,6 @@
 		DA4AA106245AAA2B00377FCE /* ConversationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsController.swift; sourceTree = "<group>"; };
 		DA4AA108245AAA3D00377FCE /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		DA646687245C382600CBADC2 /* DustinTwitter+FireBase-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DustinTwitter+FireBase-Bridging-Header.h"; sourceTree = "<group>"; };
-		DA75FC04245C49EE00803E5C /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = SOURCE_ROOT; };
 		DA7EED65245B9482005CA354 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		DA7EED67245B94DC005CA354 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		DA7EED69245B9B88005CA354 /* Utilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilites.swift; sourceTree = "<group>"; };
@@ -101,8 +101,8 @@
 				DA4AA0FB245A621D00377FCE /* API */,
 				DA4AA0FA245A621800377FCE /* Utils */,
 				DA4AA0E1245A617B00377FCE /* AppDelegate.swift */,
-				DA75FC04245C49EE00803E5C /* SceneDelegate.swift */,
-				DA4AA0E7245A617B00377FCE /* Main.storyboard */,
+				DA32A793245D265B00A2F56E /* SceneDelegate.swift */,
+				DA32A795245D2BB800A2F56E /* Main.storyboard */,
 				DA4AA0EA245A617C00377FCE /* Assets.xcassets */,
 				DA4AA0EC245A617C00377FCE /* LaunchScreen.storyboard */,
 				DA7EED6B245BB9F1005CA354 /* GoogleService-Info.plist */,
@@ -244,7 +244,7 @@
 				DA4AA0EE245A617C00377FCE /* LaunchScreen.storyboard in Resources */,
 				DA7EED6C245BB9F1005CA354 /* GoogleService-Info.plist in Resources */,
 				DA4AA0EB245A617C00377FCE /* Assets.xcassets in Resources */,
-				DA4AA0E9245A617B00377FCE /* Main.storyboard in Resources */,
+				DA32A796245D2BB800A2F56E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +304,7 @@
 				DA7EED66245B9482005CA354 /* LoginController.swift in Sources */,
 				DA4AA101245A77E800377FCE /* MainTabController.swift in Sources */,
 				DA4AA107245AAA2B00377FCE /* ConversationsController.swift in Sources */,
-				DA75FC05245C49EE00803E5C /* SceneDelegate.swift in Sources */,
+				DA32A794245D265B00A2F56E /* SceneDelegate.swift in Sources */,
 				DA4AA103245AA9CE00377FCE /* FeedController.swift in Sources */,
 				DA7EED68245B94DC005CA354 /* RegistrationController.swift in Sources */,
 				DA925920245AB40C00420952 /* Extension.swift in Sources */,
@@ -314,14 +314,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DA4AA0E7245A617B00377FCE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DA4AA0E8245A617B00377FCE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DA4AA0EC245A617C00377FCE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -383,7 +375,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -437,7 +429,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
