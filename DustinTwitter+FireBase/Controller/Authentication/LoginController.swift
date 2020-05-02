@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import KakaoOpenSDK
+import NaverThirdPartyLogin
+import Alamofire
 
 class LoginController: UIViewController {
     //MARK: - Properties
+    
+    let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
     
     private let logoImageView: UIImageView = {
         let iv = UIImageView()
@@ -45,9 +50,16 @@ class LoginController: UIViewController {
     
     private let logInButton : UIButton = {
         let button = Utilites().buttonUI(setTitle: "Log in")
-        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleLogin(_:)), for: .touchUpInside)
         return button
     }()
+    
+    private let loginButton: KOLoginButton = {
+        let button = KOLoginButton()
+        button.addTarget(self, action: #selector(touchUpLoginButton(_:)), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+      }()
     
     
     private let dontHaveAccountButton: UIButton = {
@@ -56,6 +68,7 @@ class LoginController: UIViewController {
         return button
     }()
     
+
     
     
     
@@ -80,7 +93,7 @@ class LoginController: UIViewController {
         logoImageView.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor)
         logoImageView.setDimensions(width: 150, height: 150)
         
-        let stack = UIStackView(arrangedSubviews: [emailContainerView,passwordContainerView,logInButton])
+        let stack = UIStackView(arrangedSubviews: [emailContainerView,passwordContainerView,logInButton,loginButton])
         stack.axis = .vertical
         stack.spacing = 20
         stack.distribution = .fillEqually
@@ -90,12 +103,46 @@ class LoginController: UIViewController {
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.anchor(left:view.leftAnchor,bottom:view.safeAreaLayoutGuide.bottomAnchor,right: view.rightAnchor)
         
+        
+        
+    }
+    
+    private func getNaverInfo() {
+      guard let isValidAccessToken = loginInstance?.isValidAccessTokenExpireTimeNow() else { return }
+      
+      if !isValidAccessToken {
+        return
+      }
+      
+      guard let tokenType = loginInstance?.tokenType else { return }
+      guard let accessToken = loginInstance?.accessToken else { return }
+      let urlStr = "https://openapi.naver.com/v1/nid/me"
+      let url = URL(string: urlStr)!
+      
+      let authorization = "\(tokenType) \(accessToken)"
+      
+      let req = AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: ["Authorization": authorization])
+
+      req.responseJSON { response in
+      guard let result = response.value as? [String: Any] else { return }
+      guard let object = result["response"] as? [String: Any] else { return }
+      guard let name = object["name"] as? String else { return }
+      guard let email = object["email"] as? String else { return }
+      guard let nickname = object["nickname"] as? String else { return }
+
+      print("\(name)")
+      print("\(email)")
+      print("\(nickname)")
+      }
     }
     
     //MARK: - Selectors
     
-    @objc func handleLogin() {
-        print("handle LogIn")
+    @objc private func handleLogin(_ sender: UIButton) {
+        
+        loginInstance?.delegate = self
+        loginInstance?.requestThirdPartyLogin()
+                
     }
     
     @objc func handleSignUp() {
@@ -103,4 +150,70 @@ class LoginController: UIViewController {
         navigationController?.pushViewController(controller, animated: true)
 
     }
+    
+    @objc private func touchUpLoginButton(_ sender: UIButton) {
+      guard let session = KOSession.shared() else {
+        return
+      }
+      
+      if session.isOpen() {
+        session.close()
+      }
+      
+      session.open { (error) in
+        if error != nil || !session.isOpen() { return }
+        KOSessionTask.userMeTask(completion: { (error, user) in
+            
+          guard let user = user,
+                let email = user.account?.email,
+                let nickname = user.nickname else { return }
+            
+            let controller = MainTabController()
+            self.present(controller, animated: false, completion: nil)
+    
+         
+        })
+       
+      }
+    
+    }
+    
+    
+}
+
+
+extension LoginController: NaverThirdPartyLoginConnectionDelegate {
+  // 로그인 버튼을 눌렀을 경우 열게 될 브라우저
+  func oauth20ConnectionDidOpenInAppBrowser(forOAuth request: URLRequest!) {
+//     let naverSignInVC = NLoginThirdPartyOAuth20InAppBrowserViewController(request: request)!
+//     naverSignInVC.parentOrientation = UIInterfaceOrientation(rawValue: UIDevice.current.orientation.rawValue)!
+//     present(naverSignInVC, animated: false, completion: nil)
+    
+    // UPDATE: 2019. 10. 11 (금)
+    // UIWebView가 제거되면서 NLoginThirdPartyOAuth20InAppBrowserViewController가 있는 헤더가 삭제되었습니다.
+    // 해당 코드 없이도 로그인 화면이 잘 열리는 것을 확인했습니다.
+  }
+  
+  // 로그인에 성공했을 경우 호출
+  func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
+    print("[Success] : Success Naver Login")
+    let controller = MainTabController()
+    self.present(controller, animated: true, completion: nil)
+    getNaverInfo()
+  }
+  
+  // 접근 토큰 갱신
+  func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
+    
+  }
+  
+  // 로그아웃 할 경우 호출(토큰 삭제)
+  func oauth20ConnectionDidFinishDeleteToken() {
+    loginInstance?.requestDeleteToken()
+  }
+  
+  // 모든 Error
+  func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
+    print("[Error] :", error.localizedDescription)
+  }
 }

@@ -3,13 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		ACF136860FC6E276BEDC6DB5 /* Pods_DustinTwitter_FireBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0C18D051AA45D62547A0A2 /* Pods_DustinTwitter_FireBase.framework */; };
 		DA4AA0E2245A617B00377FCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4AA0E1245A617B00377FCE /* AppDelegate.swift */; };
-		DA4AA0E4245A617B00377FCE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4AA0E3245A617B00377FCE /* SceneDelegate.swift */; };
 		DA4AA0E9245A617B00377FCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4AA0E7245A617B00377FCE /* Main.storyboard */; };
 		DA4AA0EB245A617C00377FCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4AA0EA245A617C00377FCE /* Assets.xcassets */; };
 		DA4AA0EE245A617C00377FCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4AA0EC245A617C00377FCE /* LaunchScreen.storyboard */; };
@@ -18,10 +17,12 @@
 		DA4AA105245AAA1F00377FCE /* ExploreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4AA104245AAA1F00377FCE /* ExploreController.swift */; };
 		DA4AA107245AAA2B00377FCE /* ConversationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4AA106245AAA2B00377FCE /* ConversationsController.swift */; };
 		DA4AA109245AAA3D00377FCE /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4AA108245AAA3D00377FCE /* NotificationController.swift */; };
+		DA75FC05245C49EE00803E5C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA75FC04245C49EE00803E5C /* SceneDelegate.swift */; };
 		DA7EED66245B9482005CA354 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7EED65245B9482005CA354 /* LoginController.swift */; };
 		DA7EED68245B94DC005CA354 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7EED67245B94DC005CA354 /* RegistrationController.swift */; };
 		DA7EED6A245B9B88005CA354 /* Utilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7EED69245B9B88005CA354 /* Utilites.swift */; };
 		DA7EED6C245BB9F1005CA354 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA7EED6B245BB9F1005CA354 /* GoogleService-Info.plist */; };
+		DA7EED70245C33BD005CA354 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7EED6F245C33BD005CA354 /* KakaoOpenSDK.framework */; };
 		DA925920245AB40C00420952 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92591F245AB40C00420952 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +32,6 @@
 		C9FFF872288251B5102D807D /* Pods-DustinTwitter+FireBase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DustinTwitter+FireBase.debug.xcconfig"; path = "Target Support Files/Pods-DustinTwitter+FireBase/Pods-DustinTwitter+FireBase.debug.xcconfig"; sourceTree = "<group>"; };
 		DA4AA0DE245A617B00377FCE /* DustinTwitter+FireBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DustinTwitter+FireBase.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA4AA0E1245A617B00377FCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DA4AA0E3245A617B00377FCE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DA4AA0E8245A617B00377FCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA4AA0EA245A617C00377FCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA4AA0ED245A617C00377FCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -41,10 +41,13 @@
 		DA4AA104245AAA1F00377FCE /* ExploreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreController.swift; sourceTree = "<group>"; };
 		DA4AA106245AAA2B00377FCE /* ConversationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsController.swift; sourceTree = "<group>"; };
 		DA4AA108245AAA3D00377FCE /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		DA646687245C382600CBADC2 /* DustinTwitter+FireBase-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DustinTwitter+FireBase-Bridging-Header.h"; sourceTree = "<group>"; };
+		DA75FC04245C49EE00803E5C /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = SOURCE_ROOT; };
 		DA7EED65245B9482005CA354 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		DA7EED67245B94DC005CA354 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		DA7EED69245B9B88005CA354 /* Utilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilites.swift; sourceTree = "<group>"; };
 		DA7EED6B245BB9F1005CA354 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		DA7EED6F245C33BD005CA354 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KakaoOpenSDK.framework; path = "KakaoOpenSDK-1.22.0/KakaoOpenSDK.framework"; sourceTree = "<group>"; };
 		DA92591F245AB40C00420952 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +57,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACF136860FC6E276BEDC6DB5 /* Pods_DustinTwitter_FireBase.framework in Frameworks */,
+				DA7EED70245C33BD005CA354 /* KakaoOpenSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +67,7 @@
 		A62B7E696DD9D8DC82991CCE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA7EED6F245C33BD005CA354 /* KakaoOpenSDK.framework */,
 				7A0C18D051AA45D62547A0A2 /* Pods_DustinTwitter_FireBase.framework */,
 			);
 			name = Frameworks;
@@ -96,12 +101,13 @@
 				DA4AA0FB245A621D00377FCE /* API */,
 				DA4AA0FA245A621800377FCE /* Utils */,
 				DA4AA0E1245A617B00377FCE /* AppDelegate.swift */,
-				DA4AA0E3245A617B00377FCE /* SceneDelegate.swift */,
+				DA75FC04245C49EE00803E5C /* SceneDelegate.swift */,
 				DA4AA0E7245A617B00377FCE /* Main.storyboard */,
 				DA4AA0EA245A617C00377FCE /* Assets.xcassets */,
 				DA4AA0EC245A617C00377FCE /* LaunchScreen.storyboard */,
 				DA7EED6B245BB9F1005CA354 /* GoogleService-Info.plist */,
 				DA4AA0EF245A617C00377FCE /* Info.plist */,
+				DA646687245C382600CBADC2 /* DustinTwitter+FireBase-Bridging-Header.h */,
 			);
 			path = "DustinTwitter+FireBase";
 			sourceTree = "<group>";
@@ -171,7 +177,6 @@
 				C9FFF872288251B5102D807D /* Pods-DustinTwitter+FireBase.debug.xcconfig */,
 				3B0AFEB6CFA35AE2FEA95E6E /* Pods-DustinTwitter+FireBase.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -186,7 +191,7 @@
 				DA4AA0DA245A617B00377FCE /* Sources */,
 				DA4AA0DB245A617B00377FCE /* Frameworks */,
 				DA4AA0DC245A617B00377FCE /* Resources */,
-				451B2C43675C09AEE7421232 /* [CP] Embed Pods Frameworks */,
+				A3F4B32467F335A3D50F13BD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -209,6 +214,7 @@
 				TargetAttributes = {
 					DA4AA0DD245A617B00377FCE = {
 						CreatedOnToolsVersion = 11.4.1;
+						LastSwiftMigration = 1140;
 					};
 				};
 			};
@@ -267,7 +273,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		451B2C43675C09AEE7421232 /* [CP] Embed Pods Frameworks */ = {
+		A3F4B32467F335A3D50F13BD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -293,12 +299,12 @@
 			files = (
 				DA4AA0E2245A617B00377FCE /* AppDelegate.swift in Sources */,
 				DA4AA105245AAA1F00377FCE /* ExploreController.swift in Sources */,
-				DA4AA0E4245A617B00377FCE /* SceneDelegate.swift in Sources */,
 				DA4AA109245AAA3D00377FCE /* NotificationController.swift in Sources */,
 				DA7EED6A245B9B88005CA354 /* Utilites.swift in Sources */,
 				DA7EED66245B9482005CA354 /* LoginController.swift in Sources */,
 				DA4AA101245A77E800377FCE /* MainTabController.swift in Sources */,
 				DA4AA107245AAA2B00377FCE /* ConversationsController.swift in Sources */,
+				DA75FC05245C49EE00803E5C /* SceneDelegate.swift in Sources */,
 				DA4AA103245AA9CE00377FCE /* FeedController.swift in Sources */,
 				DA7EED68245B94DC005CA354 /* RegistrationController.swift in Sources */,
 				DA925920245AB40C00420952 /* Extension.swift in Sources */,
@@ -446,15 +452,65 @@
 			baseConfigurationReference = C9FFF872288251B5102D807D /* Pods-DustinTwitter+FireBase.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3VT454RG8M;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KakaoOpenSDK-1.22.0",
+				);
 				INFOPLIST_FILE = "DustinTwitter+FireBase/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"FBLPromises\"",
+					"-framework",
+					"\"FIRAnalyticsConnector\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreDiagnostics\"",
+					"-framework",
+					"\"FirebaseInstallations\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleDataTransport\"",
+					"-framework",
+					"\"GoogleDataTransportCCTSupport\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"nanopb\"",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Dustin.DustinTwitter-FireBase";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DustinTwitter+FireBase/DustinTwitter+FireBase-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -465,15 +521,64 @@
 			baseConfigurationReference = 3B0AFEB6CFA35AE2FEA95E6E /* Pods-DustinTwitter+FireBase.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3VT454RG8M;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KakaoOpenSDK-1.22.0",
+				);
 				INFOPLIST_FILE = "DustinTwitter+FireBase/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"FBLPromises\"",
+					"-framework",
+					"\"FIRAnalyticsConnector\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreDiagnostics\"",
+					"-framework",
+					"\"FirebaseInstallations\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleDataTransport\"",
+					"-framework",
+					"\"GoogleDataTransportCCTSupport\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"nanopb\"",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Dustin.DustinTwitter-FireBase";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DustinTwitter+FireBase/DustinTwitter+FireBase-Bridging-Header.h";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
