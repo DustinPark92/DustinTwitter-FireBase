@@ -18,12 +18,17 @@
 		DA4AA105245AAA1F00377FCE /* ExploreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4AA104245AAA1F00377FCE /* ExploreController.swift */; };
 		DA4AA107245AAA2B00377FCE /* ConversationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4AA106245AAA2B00377FCE /* ConversationsController.swift */; };
 		DA4AA109245AAA3D00377FCE /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4AA108245AAA3D00377FCE /* NotificationController.swift */; };
+		DA5FEBF82467E77500BEABF5 /* UploadTweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5FEBF72467E77500BEABF5 /* UploadTweetController.swift */; };
+		DA671F9F2460108000C66E47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA671F9E2460108000C66E47 /* GoogleService-Info.plist */; };
+		DA671FA12460139900C66E47 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA671FA02460139900C66E47 /* Constants.swift */; };
+		DA671FA32460200A00C66E47 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA671FA22460200A00C66E47 /* AuthService.swift */; };
 		DA7EED66245B9482005CA354 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7EED65245B9482005CA354 /* LoginController.swift */; };
 		DA7EED68245B94DC005CA354 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7EED67245B94DC005CA354 /* RegistrationController.swift */; };
 		DA7EED6A245B9B88005CA354 /* Utilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7EED69245B9B88005CA354 /* Utilites.swift */; };
-		DA7EED6C245BB9F1005CA354 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA7EED6B245BB9F1005CA354 /* GoogleService-Info.plist */; };
 		DA7EED70245C33BD005CA354 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7EED6F245C33BD005CA354 /* KakaoOpenSDK.framework */; };
 		DA925920245AB40C00420952 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92591F245AB40C00420952 /* Extension.swift */; };
+		DA9271FD2467930E009782D7 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9271FC2467930E009782D7 /* UserService.swift */; };
+		DA9271FF246799AE009782D7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9271FE246799AE009782D7 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,13 +47,18 @@
 		DA4AA104245AAA1F00377FCE /* ExploreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreController.swift; sourceTree = "<group>"; };
 		DA4AA106245AAA2B00377FCE /* ConversationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsController.swift; sourceTree = "<group>"; };
 		DA4AA108245AAA3D00377FCE /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		DA5FEBF72467E77500BEABF5 /* UploadTweetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTweetController.swift; sourceTree = "<group>"; };
 		DA646687245C382600CBADC2 /* DustinTwitter+FireBase-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DustinTwitter+FireBase-Bridging-Header.h"; sourceTree = "<group>"; };
+		DA671F9E2460108000C66E47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		DA671FA02460139900C66E47 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DA671FA22460200A00C66E47 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		DA7EED65245B9482005CA354 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		DA7EED67245B94DC005CA354 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		DA7EED69245B9B88005CA354 /* Utilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilites.swift; sourceTree = "<group>"; };
-		DA7EED6B245BB9F1005CA354 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		DA7EED6F245C33BD005CA354 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KakaoOpenSDK.framework; path = "KakaoOpenSDK-1.22.0/KakaoOpenSDK.framework"; sourceTree = "<group>"; };
 		DA92591F245AB40C00420952 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		DA9271FC2467930E009782D7 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		DA9271FE246799AE009782D7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = "DustinTwitter+FireBase/API/User.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +115,8 @@
 				DA32A795245D2BB800A2F56E /* Main.storyboard */,
 				DA4AA0EA245A617C00377FCE /* Assets.xcassets */,
 				DA4AA0EC245A617C00377FCE /* LaunchScreen.storyboard */,
-				DA7EED6B245BB9F1005CA354 /* GoogleService-Info.plist */,
 				DA4AA0EF245A617C00377FCE /* Info.plist */,
+				DA671F9E2460108000C66E47 /* GoogleService-Info.plist */,
 				DA646687245C382600CBADC2 /* DustinTwitter+FireBase-Bridging-Header.h */,
 			);
 			path = "DustinTwitter+FireBase";
@@ -117,6 +127,7 @@
 			children = (
 				DA92591F245AB40C00420952 /* Extension.swift */,
 				DA7EED69245B9B88005CA354 /* Utilites.swift */,
+				DA671FA02460139900C66E47 /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -124,6 +135,8 @@
 		DA4AA0FB245A621D00377FCE /* API */ = {
 			isa = PBXGroup;
 			children = (
+				DA671FA22460200A00C66E47 /* AuthService.swift */,
+				DA9271FC2467930E009782D7 /* UserService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -137,6 +150,7 @@
 				DA4AA104245AAA1F00377FCE /* ExploreController.swift */,
 				DA4AA108245AAA3D00377FCE /* NotificationController.swift */,
 				DA4AA106245AAA2B00377FCE /* ConversationsController.swift */,
+				DA5FEBF72467E77500BEABF5 /* UploadTweetController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -158,6 +172,7 @@
 		DA4AA0FF245A622700377FCE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA9271FE246799AE009782D7 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,7 +206,7 @@
 				DA4AA0DA245A617B00377FCE /* Sources */,
 				DA4AA0DB245A617B00377FCE /* Frameworks */,
 				DA4AA0DC245A617B00377FCE /* Resources */,
-				A3F4B32467F335A3D50F13BD /* [CP] Embed Pods Frameworks */,
+				4F979EA50E2314DCB17566F3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -242,7 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA4AA0EE245A617C00377FCE /* LaunchScreen.storyboard in Resources */,
-				DA7EED6C245BB9F1005CA354 /* GoogleService-Info.plist in Resources */,
+				DA671F9F2460108000C66E47 /* GoogleService-Info.plist in Resources */,
 				DA4AA0EB245A617C00377FCE /* Assets.xcassets in Resources */,
 				DA32A796245D2BB800A2F56E /* Main.storyboard in Resources */,
 			);
@@ -273,7 +288,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A3F4B32467F335A3D50F13BD /* [CP] Embed Pods Frameworks */ = {
+		4F979EA50E2314DCB17566F3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -297,17 +312,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA9271FD2467930E009782D7 /* UserService.swift in Sources */,
 				DA4AA0E2245A617B00377FCE /* AppDelegate.swift in Sources */,
 				DA4AA105245AAA1F00377FCE /* ExploreController.swift in Sources */,
 				DA4AA109245AAA3D00377FCE /* NotificationController.swift in Sources */,
 				DA7EED6A245B9B88005CA354 /* Utilites.swift in Sources */,
 				DA7EED66245B9482005CA354 /* LoginController.swift in Sources */,
 				DA4AA101245A77E800377FCE /* MainTabController.swift in Sources */,
+				DA671FA32460200A00C66E47 /* AuthService.swift in Sources */,
+				DA5FEBF82467E77500BEABF5 /* UploadTweetController.swift in Sources */,
+				DA9271FF246799AE009782D7 /* User.swift in Sources */,
 				DA4AA107245AAA2B00377FCE /* ConversationsController.swift in Sources */,
 				DA32A794245D265B00A2F56E /* SceneDelegate.swift in Sources */,
 				DA4AA103245AA9CE00377FCE /* FeedController.swift in Sources */,
 				DA7EED68245B94DC005CA354 /* RegistrationController.swift in Sources */,
 				DA925920245AB40C00420952 /* Extension.swift in Sources */,
+				DA671FA12460139900C66E47 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

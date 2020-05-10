@@ -62,6 +62,15 @@ class LoginController: UIViewController {
       }()
     
     
+    private let loginButtonNaver: UIButton = {
+         let button = Utilites().buttonUI(setTitle: "네이버로 로그인하기")
+               button.addTarget(self, action: #selector(handleNaverLogin(_:)), for: .touchUpInside)
+                button.backgroundColor = .green
+            button.setTitleColor(.black, for: .normal)
+               return button
+    }()
+    
+    
     private let dontHaveAccountButton: UIButton = {
         let button = Utilites().attributedButton("Don't have an account?", " Sign Up")
         button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
@@ -93,7 +102,7 @@ class LoginController: UIViewController {
         logoImageView.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor)
         logoImageView.setDimensions(width: 150, height: 150)
         
-        let stack = UIStackView(arrangedSubviews: [emailContainerView,passwordContainerView,logInButton,loginButton])
+        let stack = UIStackView(arrangedSubviews: [emailContainerView,passwordContainerView,logInButton,loginButton,loginButtonNaver])
         stack.axis = .vertical
         stack.spacing = 20
         stack.distribution = .fillEqually
@@ -138,10 +147,30 @@ class LoginController: UIViewController {
     
     //MARK: - Selectors
     
-    @objc private func handleLogin(_ sender: UIButton) {
+    @objc private func handleNaverLogin(_ sender: UIButton) {
         
         loginInstance?.delegate = self
         loginInstance?.requestThirdPartyLogin()
+                
+    }
+
+    
+    @objc private func handleLogin(_ sender: UIButton) {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        AuthService.shared.logUserIn(withEmail: email, password: password) { (result, error) in
+            if let error = error {
+                print("\(error.localizedDescription)")
+                return
+            }
+//            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+//            guard let tab = window.rootViewController as? MainTabController else { return }
+//
+//            tab.authenticateUserConfigureUI()
+            
+            self.dismiss(animated: true, completion: nil)
+        }
                 
     }
     
@@ -155,10 +184,12 @@ class LoginController: UIViewController {
       guard let session = KOSession.shared() else {
         return
       }
+        
+        if session.isOpen() {
+               session.close()
+             }
       
-      if session.isOpen() {
-        session.close()
-      }
+ 
       
       session.open { (error) in
         if error != nil || !session.isOpen() { return }
@@ -168,11 +199,15 @@ class LoginController: UIViewController {
                 let email = user.account?.email,
                 let nickname = user.nickname else { return }
             
-            let controller = MainTabController()
-            self.present(controller, animated: false, completion: nil)
-    
-         
+           
         })
+        
+        let controller = MainTabController()
+        self.navigationController?.pushViewController(controller, animated: true)
+
+       
+           
+                
        
       }
     
@@ -185,21 +220,15 @@ class LoginController: UIViewController {
 extension LoginController: NaverThirdPartyLoginConnectionDelegate {
   // 로그인 버튼을 눌렀을 경우 열게 될 브라우저
   func oauth20ConnectionDidOpenInAppBrowser(forOAuth request: URLRequest!) {
-//     let naverSignInVC = NLoginThirdPartyOAuth20InAppBrowserViewController(request: request)!
-//     naverSignInVC.parentOrientation = UIInterfaceOrientation(rawValue: UIDevice.current.orientation.rawValue)!
-//     present(naverSignInVC, animated: false, completion: nil)
-    
-    // UPDATE: 2019. 10. 11 (금)
-    // UIWebView가 제거되면서 NLoginThirdPartyOAuth20InAppBrowserViewController가 있는 헤더가 삭제되었습니다.
-    // 해당 코드 없이도 로그인 화면이 잘 열리는 것을 확인했습니다.
+
   }
   
   // 로그인에 성공했을 경우 호출
   func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
     print("[Success] : Success Naver Login")
-    let controller = MainTabController()
-    self.present(controller, animated: true, completion: nil)
     getNaverInfo()
+    let controller = MainTabController()
+    navigationController?.pushViewController(controller, animated: true)
   }
   
   // 접근 토큰 갱신

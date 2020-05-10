@@ -7,8 +7,19 @@
 //
 
 import UIKit
+import Firebase
+
 
 class MainTabController: UITabBarController {
+    
+    var user: User? {
+        didSet {
+             guard let nav = viewControllers?[0] as? UINavigationController else { return}
+            guard let feed = nav.viewControllers.first as? FeedController else { return }
+            
+            feed.user = user
+        }
+    }
     
     //MARK: - Properties
     
@@ -22,24 +33,61 @@ class MainTabController: UITabBarController {
     }()
     
     //MARK: - Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+//       logUserOut()
+        authenticateUserConfigureUI()
         configureUI()
         configureViewController()
-        view.backgroundColor = .red
+ 
+        view.backgroundColor = .twitterBlue
     }
     
     func configureUI() {
         view.addSubview(actionButton)
         actionButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingBottom: 64, paddingRight: 16,
-            width: 56,
-            height: 56)
+                            width: 56,
+                            height: 56)
         
         actionButton.layer.cornerRadius = 56 / 2
         
         
         
+    }
+    
+    //MARK: - API
+    func fetchUser() {
+        UserService.shared.fetchUser { user in
+            self.user = user
+        }
+    }
+    
+    func authenticateUserConfigureUI() {
+        
+        if Auth.auth().currentUser == nil {
+            
+            print("user Not logged In")
+            DispatchQueue.main.async {
+                let nav = UINavigationController(rootViewController: LoginController())
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true, completion: nil)
+                
+            }
+        } else {
+        fetchUser()
+            
+       
+        }
+    }
+    
+    func logUserOut() {
+        do {
+            try Auth.auth().signOut()
+        
+        } catch let error {
+            print("failed to sign out with error \(error.localizedDescription)")
+        }
     }
     
     //MARK: - Helpers
@@ -74,8 +122,12 @@ class MainTabController: UITabBarController {
     //MARK : - Selectors
     
     @objc func actionBUttonTapped() {
-        print(123)
+        guard let user = user else { return }
+        let controller = UploadTweetController(user: user)
+        let nav = UINavigationController(rootViewController: controller)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true, completion: nil)
         
     }
-
+    
 }
