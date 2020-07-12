@@ -139,9 +139,6 @@ class LoginController: UIViewController {
       guard let email = object["email"] as? String else { return }
       guard let nickname = object["nickname"] as? String else { return }
 
-      print("\(name)")
-      print("\(email)")
-      print("\(nickname)")
       }
     }
     
@@ -161,7 +158,7 @@ class LoginController: UIViewController {
         
         AuthService.shared.logUserIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
-                print("\(error.localizedDescription)")
+                
                 return
             }
 //            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }

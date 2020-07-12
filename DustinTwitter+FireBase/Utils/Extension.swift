@@ -71,7 +71,7 @@ extension UIView {
 
         func centerY(inView view: UIView, leftAnchor: NSLayoutXAxisAnchor? = nil, paddingLeft: CGFloat? = nil,
                      constant: CGFloat? = 0) {
-            translatesAutoresizingMaskIntoConstraints = true
+            translatesAutoresizingMaskIntoConstraints = false
             
             centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant!).isActive = true
             
@@ -87,8 +87,8 @@ extension UIView {
         
         func setDimensions(width: CGFloat, height: CGFloat) {
             translatesAutoresizingMaskIntoConstraints = false
-            widthAnchor.constraint(equalToConstant: height).isActive = true
-            heightAnchor.constraint(equalToConstant: width).isActive = true
+            widthAnchor.constraint(equalToConstant: width).isActive = true
+            heightAnchor.constraint(equalToConstant: height).isActive = true
         }
         
         func addConstraintsToFillView(_ view: UIView) {

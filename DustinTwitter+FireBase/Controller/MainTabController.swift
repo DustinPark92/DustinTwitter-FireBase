@@ -36,7 +36,7 @@ class MainTabController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//       logUserOut()
+
         authenticateUserConfigureUI()
         configureUI()
         configureViewController()
@@ -58,7 +58,8 @@ class MainTabController: UITabBarController {
     
     //MARK: - API
     func fetchUser() {
-        UserService.shared.fetchUser { user in
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        UserService.shared.fetchUser(uid: uid) { user in
             self.user = user
         }
     }
@@ -96,7 +97,7 @@ class MainTabController: UITabBarController {
     func configureViewController() {
         
         //tab bar 박기
-        let feed = FeedController()
+        let feed = FeedController(collectionViewLayout: UICollectionViewFlowLayout())
         let explore = ExploreController()
         let notifications = NotificationController()
         let conversations = ConversationsController()
