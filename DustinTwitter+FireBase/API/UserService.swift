@@ -42,7 +42,7 @@ struct UserService {
         }
     }
     
-    func fetchUser(uid: String, completion: @escaping(DatabaseCompletion)) {
+    func followUser(uid: String, completion: @escaping(DatabaseCompletion)) {
         
         guard let currentUid = Auth.auth().currentUser?.uid else { return }
         

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol tweetHeaderDelegate: class{
+    func showActionSheet()
+}
+
 class TweetHeader: UICollectionReusableView {
     //MARK: - Properties
     
@@ -15,6 +19,7 @@ class TweetHeader: UICollectionReusableView {
         didSet { configure() }
         
     }
+    weak var delegate: tweetHeaderDelegate?
     private lazy var profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
@@ -105,19 +110,8 @@ class TweetHeader: UICollectionReusableView {
         return view
     }()
     
-    private lazy var retweetsLabel: UILabel = {
-        let label = UILabel()
-        label.text = "2 retweets"
-        label.font = UIFont.systemFont(ofSize: 14)
-        return label
-    }()
-    
-    private lazy var likesLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "0 likes"
-        return label
-    }()
+    private lazy var retweetsLabel = UILabel()
+    private lazy var likesLabel = UILabel()
     
     private lazy var commentButton: UIButton = {
         let button = createButton(withImageName: "comment")
@@ -177,7 +171,7 @@ class TweetHeader: UICollectionReusableView {
         
         addSubview(statsView)
         statsView.anchor(top:dateLabel.bottomAnchor,left:leftAnchor,right: rightAnchor,
-            paddingTop: 20 ,height: 40)
+            paddingTop: 12 ,height: 40)
         
         let actionStack = UIStackView(arrangedSubviews: [commentButton,retweetButton,likeButton,shareButton])
         
@@ -186,7 +180,8 @@ class TweetHeader: UICollectionReusableView {
     
         addSubview(actionStack)
         actionStack.centerX(inView: self)
-        actionStack.anchor(bottom: bottomAnchor,paddingBottom: 12)
+        actionStack.anchor(top:statsView.bottomAnchor,paddingTop: 16)
+        
         
         
     }
@@ -203,7 +198,7 @@ class TweetHeader: UICollectionReusableView {
     }
     
     @objc func showAlertSheet() {
-        print("show action Sheet")
+        delegate?.showActionSheet()
     }
     
     @objc func handleCommentTapped() {
@@ -234,6 +229,8 @@ class TweetHeader: UICollectionReusableView {
         guard let tweet = tweet else { return }
         let viewModel = TweetViewModel(tweet: tweet)
         
+        retweetsLabel.attributedText = viewModel.retweetAttributedString
+        likesLabel.attributedText = viewModel.likesAttributedString
         captionLabel.text = tweet.caption
         fullnameLabel.text  = tweet.user.fullname
         usernameLabel.text = viewModel.usernameText

@@ -157,13 +157,13 @@ extension profileController: ProfileHeaderDelegate {
                 self.collectionView.reloadData()
             }
         } else {
-            UserService.shared.fetchUser(uid: user.uid) { (ref, err) in
-                
+           UserService.shared.unfollowerUser(uid: user.uid) { (err, ref) in
                 self.user.isFollowed = true
                 header.editProfileFollowButton.setTitle("Following", for: .normal)
                 self.collectionView.reloadData()
-                
             }
+                
+            
         }
         
     }

@@ -8,10 +8,15 @@
 
 import UIKit
 
+
+
+
 class UploadTweetController : UIViewController {
     // MARK: - Properties
     
     private let user: User
+    private let config: UploadTweetConfiguration
+    private lazy var viewModel = UploadTweetViewModel(config: config)
     
     private lazy var actionButton : UIButton = {
         let button = UIButton(type: .system)
@@ -42,8 +47,9 @@ class UploadTweetController : UIViewController {
     
     //MARK: - LifeCycles
     
-    init(user: User) {
+    init(user: User, config: UploadTweetConfiguration) {
         self.user = user
+        self.config = config
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -54,13 +60,18 @@ class UploadTweetController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        print("\(user.username)")
+        switch config {
+        case .tweet:
+            print("config tweet")
+        case .reply(let tweet):
+            print("\(tweet.caption)")
+        }
     }
     
     //MARK: - Selector
     @objc func handleUploadTwwet() {
         guard let caption = captionTextView.text else { return }
-        TweetService.shared.uploadTweet(caption: caption) { (error, ref) in
+        TweetService.shared.uploadTweet(caption: caption, type: config) { (error, ref) in
             if let error = error {
                 print("\(error.localizedDescription)")
                 return
@@ -85,6 +96,7 @@ class UploadTweetController : UIViewController {
         let stack = UIStackView(arrangedSubviews: [profileImageView,captionTextView])
         stack.axis = .horizontal
         stack.spacing = 12
+        stack.alignment = .leading
         view.addSubview(stack)
         stack.anchor(top:view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor,right:view.rightAnchor, paddingTop: 16,paddingLeft: 16 , paddingRight: 16)
         

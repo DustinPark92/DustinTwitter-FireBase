@@ -11,7 +11,7 @@ import Firebase
 struct TweetService {
     static let shared = TweetService()
     
-    func uploadTweet(caption: String, compltion:@escaping(Error?,DatabaseReference) -> Void) {
+    func uploadTweet(caption: String,type: UploadTweetConfiguration , compltion:@escaping(DatabaseCompletion)) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         let values = ["uid":uid,
@@ -20,13 +20,22 @@ struct TweetService {
                       "retweets":0,
                       "caption":caption] as [String: Any]
         
-        let ref = REF_TWEETS.childByAutoId()
-        
-        ref.updateChildValues(values) { (err, ref) in
-            //update user-tweet structure after tweet upload complete
-            guard let tweetID = ref.key else { return }
-            REF_USER_TWEETS.child(uid).updateChildValues([tweetID: 1], withCompletionBlock: compltion)
+        switch type {
+        case .tweet:
+
+            
+            REF_TWEETS.childByAutoId().updateChildValues(values) { (err, ref) in
+                //update user-tweet structure after tweet upload complete
+                guard let tweetID = ref.key else { return }
+                REF_USER_TWEETS.child(uid).updateChildValues([tweetID: 1], withCompletionBlock: compltion)
+            }
+            
+        case .reply(let tweet):
+            REF_TWEET_REPLIES.child(tweet.tweetID).childByAutoId().updateChildValues(values, withCompletionBlock: compltion)
+   
         }
+        
+
     }
     
     func fetchTweets(completion: @escaping([Tweet]) -> Void) {
@@ -69,4 +78,20 @@ struct TweetService {
             }
         }
     }
+    
+    func fetchReplies(forTweet tweet: Tweet, completion: @escaping([Tweet]) -> Void) {
+        var tweets = [Tweet]()
+        REF_TWEET_REPLIES.child(tweet.tweetID).observe(.childAdded) { snapshot in
+            guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
+            guard let uid = dictionary["uid"] as? String else { return }
+            let tweetID = snapshot.key
+            
+            UserService.shared.fetchUser(uid: uid) { user in
+                let tweet = Tweet(user: user, tweetID: tweetID, dictionary: dictionary)
+                tweets.append(tweet)
+                completion(tweets)
+            }
+        }
+    }
+    
 }
