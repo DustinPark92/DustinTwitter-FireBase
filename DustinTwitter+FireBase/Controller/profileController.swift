@@ -159,7 +159,7 @@ extension profileController: ProfileHeaderDelegate {
         
             }
         } else {
-           UserService.shared.unfollowerUser(uid: user.uid) { (err, ref) in
+           UserService.shared.followUser(uid: user.uid) { (err, ref) in
                 self.user.isFollowed = true
                 header.editProfileFollowButton.setTitle("Following", for: .normal)
                 NotificationService.shared.uploadNotification(type: .follow, user: self.user)

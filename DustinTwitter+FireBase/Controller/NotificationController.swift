@@ -21,7 +21,7 @@ class NotificationController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        configureUI()
-    fectchNotifications()
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
